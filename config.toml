@@ -1,0 +1,6 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Hugo Taxonomies example"
+
+[taxonomies]
+  brand = "brands"
