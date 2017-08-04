@@ -1,12 +1,11 @@
 {{ define "main" }}
-  <ul>
+  <h1>Brands</h1>
+  <ul id="brands">
     {{ range where .Site.Pages "Section" "brands" }}
       <li>
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
         <img src="{{ .Params.logo_path }}" width="80" />
         <p>{{ .Params.description }}</p>
-        <a href="{{ .Permalink }}">
-          {{ .Title }}
-        </a>
       </li>
     {{ end }}
   </ul>
