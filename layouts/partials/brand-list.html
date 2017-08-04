@@ -1,0 +1,6 @@
+<div>
+  {{ if .Params.brands }}
+    <strong>Brand{{ if gt (len .Params.brands) 1 }}s{{ end }}:</strong>
+    {{ range $index, $brand := .Params.brands }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "brands/" | relURL }}{{ . | urlize }}">{{ . }}</a>{{ end }}
+  {{ end }}
+</div>
