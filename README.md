@@ -9,7 +9,7 @@ Here's the live view [http://hugo-taxonomies.netlify.com/](http://hugo-taxonomie
 Pages are responsible for holding content
 Taxonomies are responsible for organizing content
 
-Hugo is smart enough to create a page for each taxonomy term. That is a powerful feature and a great time saver. But if you need to attach content to a taxonomy, and using the responsibility distribution described before, the proper place to put it is in a page. So the idea here is to override the default /taxonomy/term page that hugo creates for you.
+Hugo is smart enough to create a page for each taxonomy term. That is a powerful feature and a great time saver when you have taxonomies that only need a title and a permalink, for example 'tags'. But if you need to attach content to a taxonomy, and using the responsibility distribution described before, the proper place to put it is in a page. So the idea here is to override the default /taxonomy/term page that hugo kindly creates for you with your own page.
 
 - In brands, I created a file for every brand. Those are just regular pages.
 - In the brands index, instead of using the default taxonomy list view, I used a section view, since this is a regular section
