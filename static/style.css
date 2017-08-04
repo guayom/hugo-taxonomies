@@ -1,0 +1,23 @@
+#main-menu {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: rgb(200, 200, 200);
+}
+
+#main-menu li {
+  display: inline-block;
+}
+
+#brands {
+  margin: 0;
+  padding: 0;
+}
+
+#brands li{
+  display: block;
+  box-sizing: border-box;
+  padding: 20px;
+  border: solid 1px;
+  margin: 5px;
+}
