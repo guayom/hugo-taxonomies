@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <ul>
+    {{ range where .Site.Pages "Section" "brands" }}
+      <li>
+        <img src="{{ .Params.logo_path }}" width="80" />
+        <p>{{ .Params.description }}</p>
+        <a href="{{ .Permalink }}">
+          {{ .Title }}
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}
