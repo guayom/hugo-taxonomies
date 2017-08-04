@@ -4,9 +4,11 @@
   <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body translate="no">
   <main id="main">
+    {{ partial "menu" .}}
     {{ block "main" . }}
     {{ end }}
   </main>
