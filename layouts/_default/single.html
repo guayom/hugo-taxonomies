@@ -1,6 +1,6 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
-  <img src="{{ .Params.logo_path }}" width="80" />
-  <p>{{ .Params.description }}</p>
-  <a href="{{ .Params.website }}" />Website</a>
+  <div>
+    {{ .Params.description }}
+  </div>
 {{ end }}
