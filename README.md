@@ -30,7 +30,7 @@ draft: false
 ---
 ```
 
-Now, when I visit `/brands/` I want a to display all my brands, but also gives a little more information about each one, like a logo, a description and the brand's official website link. To store the information for each brand, I create a page for each one. For example:
+Now, when I visit `/brands/` I want a to display all my brands, but also give a little more information about each one, like a logo, a description and the brand's official website link. To store the information for each brand, I create a page for each one. For example:
 
 `/content/brands/nike/_index.md`
 
@@ -45,23 +45,15 @@ logo: "/images/nike.png"
 
 **Attention:** The folder structure is important: `/content/<taxonomy>/<term>/_index.md`
 
-Then all I need to do is list these pages in my taxonomyTerms template (`/layouts/default/terms.html`). But grouping those pages can be tricky and confusing. What you want is to be able to treat `/brands` almost like a section. But since the pages are nested, you can't really do it. So here's my little trick. I created another taxonomy for the brands pages. Here's how it looks in my config.toml
+Then all I need to do is list these pages in my taxonomyTerms template (`/layouts/default/terms.html`). But grouping those pages can be tricky and confusing. What you want is to be able to treat `/brands` almost like a section. But since the pages are nested, you can't really do it. So here's my little trick. I added a `taxonomy_indexes: true` parameter in the brand pages.
 
-```
-[taxonomies]
-  brand = "brands"
-  taxonomy_index = "taxonomy_indexes"
-```
-
-And now, I use it on my brands pages:
 ```
 ---
 title: "Nike"
 description: "This is the description for Nike"
 website: "http://nike.com"
 logo: "/images/nike.png"
-taxonomy_indexes:
-  - "brands"
+taxonomy_indexes: true
 ---
 ```
 
@@ -69,7 +61,7 @@ Finally, I just list them in a breeze like this on my taxonomyTerms template (`/
 
 ```
 <ul>
-  {{ range .Site.Taxonomies.taxonomy_indexes.brands }}
+  {{ range ( where .Data.Pages ".Params.taxonomy_indexes" "==" true) }}
     <li>
       <h3>{{ .Title }}</h3>
       <dl>
@@ -84,14 +76,3 @@ Finally, I just list them in a breeze like this on my taxonomyTerms template (`/
 ```
 
 There, now I can add custom metadata to my brands and list those pages in a very simple way.
-
-## Drawbacks:
-
-Hugo will also generate pages for taxonomy_indexes.
-
-The solutions I can think of are:
-
-- Redirect those pages
-- Use a gulp or other kind of automation to delete those pages after the build.
-
-Please, if you can think of any better solution to this, please please enlighten me.
