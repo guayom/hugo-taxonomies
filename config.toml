@@ -4,3 +4,4 @@ title = "Hugo Taxonomies example"
 
 [taxonomies]
   brand = "brands"
+  taxonomy_index = "taxonomy_indexes"

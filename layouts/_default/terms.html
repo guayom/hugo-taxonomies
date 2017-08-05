@@ -1,23 +1,14 @@
 {{ define "main" }}
   <ul>
-    {{ range $key, $taxonomy := .Site.Taxonomies.brands }}
+    {{ range .Site.Taxonomies.taxonomy_indexes.brands }}
       <li>
-        <a href="/brands/{{ $key }}">{{ title $key }}</a>
-        {{ range $.Site.Data.brands }}
-          {{ if eq .title (title $key) }}
-            <dl>
-              <dt>Description</dt><dd>{{ .description }}</dd>
-              <dt>Website</dt><dd>{{ .website }}</dd>
-            </dl>
-          {{ end }}
-        {{ end }}
+        <h3>{{ .Title }}</h3>
+        <dl>
+          <dt>Link to the brand page</dt><dd><a href="{{ .Permalink }}">{{ .Permalink }}</a></dd>
+          <dt>Website</dt><dd>{{ .Params.website }}</dd>
+          <dt>Description</dt><dd>{{ .Params.description }}</dd>
+        </dl>
       </li>
-      <ul>
-        {{ range $taxonomy.Pages }}
-          <li hugo-nav="{{ .RelPermalink}}"><a href="{{ .Permalink}}"> {{ .LinkTitle }} </a> </li>
-        {{ end }}
-      </ul>
     {{ end }}
   </ul>
-
 {{ end }}
