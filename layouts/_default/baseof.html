@@ -9,7 +9,13 @@
 <body translate="no">
   <main id="main">
     {{ partial "menu" .}}
+    <h1>{{ .Title }}</h1>
     {{ block "main" . }}
     {{ end }}
+    <div class="debug">
+      <hr/>
+      <h3>Debug</h3>
+      {{ .Kind }}
+    </div>
   </main>
 </body>
