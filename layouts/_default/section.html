@@ -1,3 +1,19 @@
 {{ define "main" }}
-  Section
+  <main>
+    {{ .Content }}
+    <ul class="contents">
+      {{ range .Paginator.Pages }}
+        <li>
+          <h2><a href="{{ .Permalink }}">{{.Title}}</a></h2>
+          <dl>
+            <dt>Description</dt><dd>{{ .Params.description }}</dd>
+            <dt>Brand</dt>
+            <dd>
+              {{ partial "brand-list.html" . }}
+            </dd>
+          </dl>
+        </li>
+      {{ end }}
+    </ul>
+  </main>
 {{ end }}

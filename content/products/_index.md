@@ -1,4 +1,4 @@
 ---
 title: Products
 ---
-In the products you can start using taxonomies
+Here's a list of all the products
