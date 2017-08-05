@@ -6,15 +6,29 @@ Here's the live view [http://hugo-taxonomies.netlify.com/](http://hugo-taxonomie
 
 ## How does it work?
 
-- Pages are responsible for holding content.
-- Taxonomies are responsible for organizing content.
+- I create a `/data/<TAXONOMY>/<TERM>.yml` file for every taxonomy term.
+- Then, whenever I want to get the data from a taxonomy, I pull the data from that data file.
+Like so:
 
-Hugo is smart enough to create a page for each taxonomy term. That is a powerful feature and a great time saver when you have taxonomies that only need a title and a permalink, for example 'tags'. But if you need to attach content to a taxonomy, and using the responsibility distribution described before, the proper place to put it is in a page. So the idea here is to override the default /taxonomy/term page that hugo kindly creates for you with your own page.
-
-- In brands, I created a file for every brand. Those are just regular pages.
-- In the brands index, instead of using the default taxonomy list view, I used a section view, since this is a regular section
-- In products I used taxonomies
-
-## The benefit
-
-For every taxonomy you have a matching page that contains additional meta data. When you need to show taxonomies metadata, you can get it from their matching pages.
+```
+<ul>
+  {{ range $key, $taxonomy := .Site.Taxonomies.brands }}
+    <li>
+      <a href="/brands/{{ $key }}">{{ title $key }}</a>
+      {{ range $.Site.Data.brands }}
+        {{ if eq .title (title $key) }}
+          <dl>
+            <dt>Description</dt><dd>{{ .description }}</dd>
+            <dt>Website</dt><dd>{{ .website }}</dd>
+          </dl>
+        {{ end }}
+      {{ end }}
+    </li>
+    <ul>
+        {{ range $taxonomy.Pages }}
+        <li hugo-nav="{{ .RelPermalink}}"><a href="{{ .Permalink}}"> {{ .LinkTitle }} </a> </li>
+        {{ end }}
+    </ul>
+  {{ end }}
+</ul>
+```
