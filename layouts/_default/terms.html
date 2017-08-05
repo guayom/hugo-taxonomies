@@ -13,9 +13,9 @@
         {{ end }}
       </li>
       <ul>
-          {{ range $taxonomy.Pages }}
+        {{ range $taxonomy.Pages }}
           <li hugo-nav="{{ .RelPermalink}}"><a href="{{ .Permalink}}"> {{ .LinkTitle }} </a> </li>
-          {{ end }}
+        {{ end }}
       </ul>
     {{ end }}
   </ul>
