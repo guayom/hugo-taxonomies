@@ -7,6 +7,7 @@
           <dt>Link to the brand page</dt><dd><a href="{{ .Permalink }}">{{ .Permalink }}</a></dd>
           <dt>Website</dt><dd>{{ .Params.website }}</dd>
           <dt>Description</dt><dd>{{ .Params.description }}</dd>
+          <dt>Logo</dt><dd><img src="{{ .Params.logo }}" height="90" /></dd>
         </dl>
       </li>
     {{ end }}
