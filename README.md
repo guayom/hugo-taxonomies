@@ -75,4 +75,19 @@ Finally, I just list them in a breeze like this on my taxonomyTerms template (`/
 </ul>
 ```
 
-There, now I can add custom metadata to my brands and list those pages in a very simple way.
+Finally, in my product page template, `/layouts/_default.html`, I listed other products that belong to the same brand. To do that, it is necessary to filter pages dynamically. I did it like so:
+
+```
+{{ range where .Site.Pages ".Permalink" "!=" .Permalink }}
+  {{ if eq .Params.brands $.Params.brands }}
+    <li>
+      <a href="{{ .Permalink}}">{{ .Title }}</a>
+    </li>
+  {{ end }}
+{{ end }}
+```
+
+As you can see, I ranged through all the pages except the current page and then filtered only the pages where the brands match the current product's brands. That bit works perfectly, but I think it could be improved.
+
+
+That's it, if you follow those steps you will be able to add custom metadata to your taxonomies with little effort.

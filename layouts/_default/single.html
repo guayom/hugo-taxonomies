@@ -9,9 +9,9 @@
   <h2>Other products that belong to this brand</h2>
   {{ range where .Site.Pages ".Permalink" "!=" .Permalink }}
     {{ if eq .Params.brands $.Params.brands }}
-       <li>
-         <a href="{{ .Permalink}}">{{ .Title }}</a>
-       </li>
-     {{ end }}
+      <li>
+        <a href="{{ .Permalink}}">{{ .Title }}</a>
+      </li>
+    {{ end }}
   {{ end }}
 {{ end }}
