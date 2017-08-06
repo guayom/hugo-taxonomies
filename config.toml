@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://hugo-taxonomies.netlify.com/"
 languageCode = "en-us"
 title = "Hugo Taxonomies example"
 
