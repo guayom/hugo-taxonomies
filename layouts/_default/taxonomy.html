@@ -2,12 +2,10 @@
   <h2>List of products labeled with "{{.Title}}" brand</h2>
 
   <ul>
-    {{ range .Site.Pages }}
-      {{ if in .Params.brands $.Title }}
-         <li>
-           <a href="{{ .Permalink}}">{{ .Title }}</a>
-         </li>
-       {{ end }}
+    {{ range .Data.Pages }}
+       <li>
+         <a href="{{ .Permalink}}">{{ .Title }}</a>
+       </li>
     {{ end }}
   </ul>
 
