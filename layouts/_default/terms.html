@@ -5,9 +5,22 @@
         <a href="{{ .Permalink }}">{{ .Title }}</a>
         <dl>
           <dt>Link to the brand page</dt><dd><a href="{{ .Permalink }}">{{ .Permalink }}</a></dd>
-          <dt>Website</dt><dd>{{ .Params.website }}</dd>
-          <dt>Description</dt><dd>{{ .Params.description }}</dd>
-          <dt>Logo</dt><dd><img src="{{ .Params.logo }}" height="90" /></dd>
+          <!-- Handling brands that don't have a corresponding page by using .With -->
+          {{ with .Params.website }}
+            <dt>Website</dt><dd>{{ . }}</dd>
+          {{ end }}
+          {{ with .Params.description }}
+            <dt>Description</dt><dd>{{ . }}</dd>
+          {{ end }}
+          <!-- Handling brands that don't have a corresponding page by usinf an if statement -->
+          <dt>Logo</dt>
+          <dd>
+          {{ if ne .Params.logo nil }}
+            <img src="{{ .Params.logo }}" height="90" />
+          {{ else }}
+            <img src="http://via.placeholder.com/90x90?text=No+logo" height="90" />
+          {{ end }}
+          </dd>
         </dl>
       </li>
     {{ end }}

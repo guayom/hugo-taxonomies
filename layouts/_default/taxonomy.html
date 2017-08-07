@@ -1,4 +1,8 @@
 {{ define "main" }}
+  {{ with .Params.description }}
+    <p>{{.}}</p>
+  {{ end }}
+
   <h2>List of products labeled with "{{.Title}}" brand</h2>
 
   <ul>
