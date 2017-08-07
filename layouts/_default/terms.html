@@ -3,7 +3,6 @@
     {{ range .Data.Pages }}
       <li>
         <a href="{{ .Permalink }}">{{ .Title }}</a>
-        <h3>{{ .Title }}</h3>
         <dl>
           <dt>Link to the brand page</dt><dd><a href="{{ .Permalink }}">{{ .Permalink }}</a></dd>
           <dt>Website</dt><dd>{{ .Params.website }}</dd>
