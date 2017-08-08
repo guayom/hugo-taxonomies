@@ -1,4 +1,12 @@
-{{ if .Params.brands }}
-  <strong>Brand{{ if gt (len .Params.brands) 1 }}s{{ end }}:</strong>
-  {{ range $index, $brand := .Params.brands }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "brands/" | relURL }}{{ . | urlize }}">{{ . }}</a>{{ end }}
-{{ end }}
+<!-- I updated this code with a snippet from @rdwatters -->
+<ul>
+  {{ with .Params.brands }}
+    <strong>Brand{{ if gt (len .) 1 }}s{{ end }}:</strong>
+    {{ range $ind,$val := . }}
+      {{$brand := $val | urlize }}
+      {{- with $.Site.GetPage "taxonomyTerm" "brands" $brand}}
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      {{ end -}}
+    {{ end }}
+  {{ end }}
+</ul>
