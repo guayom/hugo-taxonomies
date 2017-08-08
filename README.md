@@ -2,7 +2,7 @@
 
 Live view: [http://hugo-taxonomies.netlify.com/](http://hugo-taxonomies.netlify.com/)
 
-Here you'll find a very detailed explanation on how to use taxonomies in a HUGO site. **No hackish code or intricate tricks**. There is documentation on this topic, but you'll have to search in 3 different places and some examples are missing. So it can be very confusing at times, at least it was for me.
+Taxonomies are one of the most useful features in HUGO. Here you'll find a very detailed explanation on how to use taxonomies in a HUGO site. **No hackish code or intricate tricks**. There is documentation on this topic, but you'll have to search in 3 different places and some examples are missing. So it can be very confusing at times, at least it was for me.
 
 After reading this, you will be able to:
 
