@@ -25,4 +25,19 @@
       </li>
     {{ end }}
   </ul>
+
+  <h2>List all relevant taxonomies and all the pages that belong to it</h2>
+  <ul>
+    {{ range .Data.Pages }}
+      <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ $brand := .Title | urlize }}
+        <ul>
+          {{ range ($.Site.GetPage "taxonomyTerm" "brands" $brand).Pages }}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        </ul>
+      </li>
+    {{ end }}
+  </ul>
 {{ end }}
